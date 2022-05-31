@@ -36,5 +36,4 @@ dependencies {
     implementation 'androidx.test.services:storage:1.4.0'
     implementation 'androidx.test:monitor:1.4.0'
 
-    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
 }
