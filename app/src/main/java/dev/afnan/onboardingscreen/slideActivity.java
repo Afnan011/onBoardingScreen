@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.Adapter;
 
 
+
 public class slideActivity extends AppCompatActivity {
 
     public static ViewPager viewPager;
@@ -22,6 +23,9 @@ public class slideActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
         adapter = new slideViewPagerAdapter(this);
         viewPager.setAdapter(adapter);
+        viewPager.setPageTransformer( true, new PageTransformer());
+
+
 
         if (isOpenAlready()){
             Intent intent = new Intent(slideActivity.this, MainActivity.class);
@@ -40,5 +44,6 @@ public class slideActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("slide",MODE_PRIVATE);
         boolean result = sharedPreferences.getBoolean("slide", false);
         return result;
+
     }
 }
