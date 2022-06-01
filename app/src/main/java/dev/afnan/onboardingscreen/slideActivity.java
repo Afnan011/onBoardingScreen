@@ -6,6 +6,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Adapter;
 
 
@@ -14,6 +16,7 @@ public class slideActivity extends AppCompatActivity {
 
     public static ViewPager viewPager;
     slideViewPagerAdapter adapter;
+    Animation anim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,8 @@ public class slideActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         viewPager.setPageTransformer( true, new PageTransformer());
 
-
+        anim = AnimationUtils.loadAnimation(this, R.anim.page_transition_animation);
+        viewPager.startAnimation(anim);
 
         if (isOpenAlready()){
             Intent intent = new Intent(slideActivity.this, MainActivity.class);
@@ -41,9 +45,10 @@ public class slideActivity extends AppCompatActivity {
     }
 
     private boolean isOpenAlready() {
-        SharedPreferences sharedPreferences = getSharedPreferences("slide",MODE_PRIVATE);
-        boolean result = sharedPreferences.getBoolean("slide", false);
-        return result;
+//        SharedPreferences sharedPreferences = getSharedPreferences("slide",MODE_PRIVATE);
+//        boolean result = sharedPreferences.getBoolean("slide", false);
+//        return result;
+        return false;
 
     }
 }
